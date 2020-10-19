@@ -13,7 +13,11 @@ products = [
 ];
 
 app.get('/', (req, res) => {
-    res.json(products);
+    try {
+        res.json(products);
+    } catch (error) {
+        res.send(error.message);
+    }
 })
 
 app.listen(port, () => {
